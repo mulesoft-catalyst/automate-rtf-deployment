@@ -1,0 +1,53 @@
+{
+    "name": "{{name}}",
+    "labels": [
+        "beta"
+    ],
+    "target": {
+        "provider": "MC",
+        "targetId": "{{targetId}}",
+        "deploymentSettings": {
+            "resources": {
+                "cpu": {
+                    "reserved": "{{cpuReserved}}",
+                    "limit": "{{cpuLimit}}"
+                },
+                "memory": {
+                    "reserved": "{{memReserved}}",
+                    "limit": "{{memLimit}}"
+                }
+            },
+            "clustered": "{{clusteredBoolean}}",
+            "enforceDeployingReplicasAcrossNodes": "{{replicaAccrossNodeBoolean}}",
+            "http": {
+                "inbound": {
+                    "publicUrl": "{{publicUrl}}"
+                }
+            },
+            "jvm": {},
+            "runtimeVersion": "{{runtimeVersion}}",
+            "lastMileSecurity": "{{lastMileSecurityBoolean}}",
+            "updateStrategy": "{{updateStrategy}}",
+            "disableAmLogForwarding": "{{logForwardBoolean}}"
+        },
+        "replicas": "{{replicasNumber}}"
+    },
+    "application": {
+        "ref": {
+            "groupId": "{{orgId}}",
+            "artifactId": "{{artifactId}}",
+            "version": "{{version}}",
+            "packaging": "jar"
+        },
+        "assets": [],
+        "desiredState": "STARTED",
+        "configuration": {
+            "mule.agent.application.properties.service": {
+                "applicationName": "{{name}}",
+                "properties": {
+                    "https.port": "8081"
+                }
+            }
+        }
+    }
+}
